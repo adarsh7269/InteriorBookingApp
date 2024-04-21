@@ -17,12 +17,12 @@ app.use("/api/user", userRouter);
 app.use("/api/doctor", doctorRouter);
 app.use("/api/appointment", appointRouter);
 app.use("/api/notification", notificationRouter);
-const x = path.join(__dirname, "./client/build");
+const x = path.join(__dirname, "../client/build");
 console.log("x is ", x);
 app.use(express.static(x));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
 app.listen(port, () => {});
