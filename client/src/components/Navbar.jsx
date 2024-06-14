@@ -36,7 +36,7 @@ const Navbar = () => {
             <NavLink to={"/"}>Home</NavLink>
           </li>
           <li>
-            <NavLink to={"/doctors"}>Doctors</NavLink>
+            <NavLink to={"/doctors"}>Distributors</NavLink>
           </li>
           {token && user.isAdmin && (
             <li>
@@ -52,7 +52,7 @@ const Navbar = () => {
                 <NavLink to={"/notifications"}>Notifications</NavLink>
               </li>
               <li>
-                <NavLink to={"/applyfordoctor"}>Apply for doctor</NavLink>
+                <NavLink to={"/applyfordoctor"}>Become a distributor</NavLink>
               </li>
               <li>
                 <HashLink to={"/#contact"}>Contact Us</HashLink>

@@ -1,32 +1,32 @@
 import React, { useState } from "react";
 import "../styles/bookappointment.css";
-import axios from "axios";
+import axios, { formToJSON } from "axios";
 import toast from "react-hot-toast";
 import { IoMdClose } from "react-icons/io";
-import {handleInputChange} from "./utils/utility.js"
+import {handleInputChange} from "./utils/utility.js";
 
-const BookAppointment = ({ setModalOpen, ele }) => {
+const AddReview = ({setReviewOpen ,ele }) => {
   console.group(ele);
   const [formDetails, setFormDetails] = useState({
-    date: "",
-    time: "",
+    rating: 0,
+    comment: "",
   });
 
   const inputChange = (e) => {
     handleInputChange(e, formDetails, setFormDetails);
   };
 
-  const bookAppointment = async (e) => {
+  const addreview = async (e) => {
     e.preventDefault();
     try {
       await toast.promise(
         axios.post(
-          "/appointment/bookappointment",
+          "review/addreview",
           {
             doctorId: ele?.userId?._id,
-            date: formDetails.date,
-            time: formDetails.time,
-            doctorname: `${ele?.userId?.firstname} ${ele?.userId?.lastname}`,
+            rating: formDetails.rating,
+            comment: formDetails.comment,
+
           },
           {
             headers: {
@@ -35,12 +35,13 @@ const BookAppointment = ({ setModalOpen, ele }) => {
           }
         ),
         {
-          success: "Appointment booked successfully",
-          error: "Unable to book appointment",
-          loading: "Booking appointment...",
+          success: "Review added successfully",
+          error: "Unable to add revi",
+          loading: "Review adding..",
         }
       );
-      setModalOpen(false);
+      console.log(localStorage.getItem("token"))
+      setReviewOpen(false);
     } catch (error) {
       return error;
     }
@@ -50,35 +51,36 @@ const BookAppointment = ({ setModalOpen, ele }) => {
     <>
       <div className="modal flex-center">
         <div className="modal__content">
-          <h2 className="page-heading">Book Appointment</h2>
+          <h2 className="page-heading">Add Review</h2>
           <IoMdClose
             onClick={() => {
-              setModalOpen(false);
+              setReviewOpen(false);
             }}
             className="close-btn"
           />
           <div className="register-container flex-center book">
             <form className="register-form">
               <input
-                type="date"
-                name="date"
+                type="number"
+                step="1"
+                name="rating"
                 className="form-input"
-                value={formDetails.date}
+                value={formDetails.rating}
                 onChange={inputChange}
               />
               <input
-                type="time"
-                name="time"
+                type="text"
+                name="comment"
                 className="form-input"
-                value={formDetails.time}
+                value={formDetails.comment}
                 onChange={inputChange}
               />
               <button
                 type="submit"
                 className="btn form-btn"
-                onClick={bookAppointment}
+                onClick={addreview}
               >
-                book
+                Add
               </button>
             </form>
           </div>
@@ -88,4 +90,4 @@ const BookAppointment = ({ setModalOpen, ele }) => {
   );
 };
 
-export default BookAppointment;
+export default AddReview;

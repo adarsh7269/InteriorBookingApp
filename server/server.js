@@ -7,6 +7,7 @@ const doctorRouter = require("./routes/doctorRoutes");
 const appointRouter = require("./routes/appointRoutes");
 const path = require("path");
 const notificationRouter = require("./routes/notificationRouter");
+const reviewRouter = require("./routes/reviewRoutes");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -17,6 +18,7 @@ app.use("/api/user", userRouter);
 app.use("/api/doctor", doctorRouter);
 app.use("/api/appointment", appointRouter);
 app.use("/api/notification", notificationRouter);
+app.use("/api/review", reviewRouter);
 const x = path.join(__dirname, "../client/build");
 console.log("x is ", x);
 app.use(express.static(x));

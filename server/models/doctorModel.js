@@ -28,7 +28,6 @@ const schema = mongoose.Schema(
     timestamps: true,
   }
 );
-
 const Doctor = mongoose.model("Doctor", schema);
 
 module.exports = Doctor;

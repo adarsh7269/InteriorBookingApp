@@ -16,7 +16,7 @@ const Footer = () => {
                 <NavLink to={"/"}>Home</NavLink>
               </li>
               <li>
-                <NavLink to={"/doctors"}>Doctors</NavLink>
+                <NavLink to={"/doctors"}>Distributors</NavLink>
               </li>
               <li>
                 <NavLink to={"/appointments"}>Appointments</NavLink>
@@ -68,11 +68,11 @@ const Footer = () => {
         <div className="footer-bottom">
           Made by{" "}
           <a
-            href="https://www.linkedin.com/in/dunna-avinash"
+            href="https://www.linkedin.com/in/adarsh-kumar-a974531b2"
             target="_blank"
             rel="noreferrer"
           >
-            Avinash
+            Adarsh
           </a>{" "}
           © {new Date().getFullYear()}
         </div>

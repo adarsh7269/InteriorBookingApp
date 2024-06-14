@@ -2,9 +2,11 @@ import "../styles/doctorcard.css";
 import React, { useState } from "react";
 import BookAppointment from "../components/BookAppointment";
 import { toast } from "react-hot-toast";
+import AddReview from "./AddReview";
 
 const DoctorCard = ({ ele }) => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [reviewOpen, setReviewOpen] = useState(false);
   const [token, setToken] = useState(localStorage.getItem("token") || "");
 
   const handleModal = () => {
@@ -13,6 +15,12 @@ const DoctorCard = ({ ele }) => {
     }
     setModalOpen(true);
   };
+  const handleReview =()=>{
+    if(token === ""){
+      return toast.error("You must log in first");
+    }
+    setReviewOpen(true);
+  }
 
   return (
     <div className={`card`}>
@@ -52,6 +60,19 @@ const DoctorCard = ({ ele }) => {
       {modalOpen && (
         <BookAppointment
           setModalOpen={setModalOpen}
+          ele={ele}
+        />
+      )}
+
+      <button
+        className="btn appointment-btn"
+        onClick={handleReview}
+      >
+        Add Review
+      </button>
+      {reviewOpen && (
+        <AddReview
+          setReviewOpen={setReviewOpen} 
           ele={ele}
         />
       )}

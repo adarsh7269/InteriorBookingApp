@@ -6,8 +6,10 @@ import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 import HomeCircles from "../components/HomeCircles";
 import Carousel from "../components/Carousel";
+import Pattern from "../components/Pattern";
 
 const images = [
+  //"https://images.unsplash.com/photo-1566196780468-309d0aaf0538?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fGF3bmluZ3xlbnwwfHwwfHx8MA%3D%3D",
   "https://images.pexels.com/photos/169647/pexels-photo-169647.jpeg?auto=compress&cs=tinysrgb&w=600",
   "https://images.pexels.com/photos/313782/pexels-photo-313782.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   "https://images.pexels.com/photos/773471/pexels-photo-773471.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -21,6 +23,7 @@ const Home = () => {
     <>
       <Navbar />
       <Hero />
+      <Pattern />
       <Carousel images={images} />
       <AboutUs />
       <HomeCircles />

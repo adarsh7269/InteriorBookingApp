@@ -1,0 +1,25 @@
+.rectangle-area{
+    width:600px;
+    height:300px;
+    margin:auto;
+    margin-bottom:100px;
+}
+
+.toggle-btn1{
+    margin-top: 3px;
+    background-color: white;
+    border-radius: 10px;
+    font-size: 20px;
+    padding:10px;
+
+}
+
+.toggle-btn2{
+    margin-top: 3px;
+    align-items:right;
+    background-color: white;
+    border-radius: 10px;
+    font-size: 20px;
+    padding:10px;
+
+}

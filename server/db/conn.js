@@ -2,6 +2,7 @@ const { MongoClient } = require("mongodb");
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 require("dotenv").config();
+const Review = require("../models/reviewModel");
 
 const client = mongoose
   .connect(process.env.MONGO_URI, {
