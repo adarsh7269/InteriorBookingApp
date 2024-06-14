@@ -25,7 +25,6 @@ const Home = () => {
       <Hero />
       <Pattern />
       <Carousel images={images} />
-      <AboutUs />
       <HomeCircles />
       <Contact />
       <Footer />
